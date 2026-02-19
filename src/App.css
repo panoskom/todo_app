@@ -1,0 +1,8 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: var(--popup-width);
+  height: var(--popup-height);
+  overflow: hidden;
+  background: var(--color-bg);
+}

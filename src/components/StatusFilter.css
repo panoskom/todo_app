@@ -1,0 +1,28 @@
+.status-filter {
+  display: flex;
+  gap: 4px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sf-pill {
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sf-pill:hover {
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.sf-pill--active {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}

@@ -1,0 +1,54 @@
+.quadrant-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.qh-back {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.qh-back:hover {
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.qh-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+  margin-right: 48px;
+}
+
+.qh-icon {
+  font-size: 14px;
+}
+
+.qh-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--q-color);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.qh-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--q-color);
+}
