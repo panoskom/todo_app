@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import { formatDate, formatRelativeDate } from '../utils/helpers';
+import ContextMenu from './ContextMenu';
+import TaskModal from './TaskModal';
 import './TaskItem.css';
 
-export default function TaskItem({ task, onToggle, onDelete }) {
+export default function TaskItem({ task, onToggle, onDelete, quadrantKey, onMove, onEdit }) {
+  const [menuPos, setMenuPos] = useState(null);
+  const [modal, setModal] = useState(null); // null | { mode: 'edit' } | { mode: 'move', targetQuadrant }
+
   function renderDates() {
     const start = formatDate(task.startDate);
     const end = formatDate(task.endDate);
@@ -15,7 +21,13 @@ export default function TaskItem({ task, onToggle, onDelete }) {
   const dateText = renderDates();
 
   return (
-    <div className={`task-item${task.completed ? ' task-item--done' : ''}`}>
+    <div
+      className={`task-item${task.completed ? ' task-item--done' : ''}`}
+      onContextMenu={(e) => {
+        e.preventDefault();
+        setMenuPos({ x: e.clientX, y: e.clientY });
+      }}
+    >
       <button className="ti-check" onClick={() => onToggle(task.id)}>
         {task.completed ? (
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -41,6 +53,31 @@ export default function TaskItem({ task, onToggle, onDelete }) {
           <path d="M3 3.5L7 7.5M7 7.5L11 11.5M7 7.5L11 3.5M7 7.5L3 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
         </svg>
       </button>
+      {menuPos && (
+        <ContextMenu
+          taskId={task.id}
+          currentQuadrant={quadrantKey}
+          position={menuPos}
+          onMove={(id, targetQuadrant) => {
+            setMenuPos(null);
+            setModal({ mode: 'move', targetQuadrant });
+          }}
+          onEdit={() => {
+            setMenuPos(null);
+            setModal({ mode: 'edit' });
+          }}
+          onClose={() => setMenuPos(null)}
+        />
+      )}
+      {modal && (
+        <TaskModal
+          task={task}
+          mode={modal.mode}
+          targetQuadrant={modal.targetQuadrant}
+          onSave={modal.mode === 'edit' ? onEdit : onMove}
+          onClose={() => setModal(null)}
+        />
+      )}
     </div>
   );
 }

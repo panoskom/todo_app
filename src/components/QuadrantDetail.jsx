@@ -13,6 +13,8 @@ export default function QuadrantDetail({
   onAdd,
   onToggle,
   onDelete,
+  onMove,
+  onEdit,
 }) {
   return (
     <div className="quadrant-detail">
@@ -24,6 +26,8 @@ export default function QuadrantDetail({
         quadrantKey={quadrantKey}
         onToggle={onToggle}
         onDelete={onDelete}
+        onMove={onMove}
+        onEdit={onEdit}
       />
     </div>
   );

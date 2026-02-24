@@ -6,7 +6,7 @@ import QuadrantDetail from './components/QuadrantDetail';
 import './App.css';
 
 export default function App() {
-  const { loaded, addTask, toggleTask, deleteTask, getTasksByQuadrant, getQuadrantCounts } = useTasks();
+  const { loaded, addTask, toggleTask, deleteTask, moveTask, editTask, getTasksByQuadrant, getQuadrantCounts } = useTasks();
   const [activeView, setActiveView] = useState('matrix');
   const [statusFilter, setStatusFilter] = useState('all');
 
@@ -37,6 +37,8 @@ export default function App() {
           onAdd={addTask}
           onToggle={toggleTask}
           onDelete={deleteTask}
+          onMove={moveTask}
+          onEdit={editTask}
         />
       )}
     </div>

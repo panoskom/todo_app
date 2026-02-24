@@ -29,6 +29,18 @@ export function useTasks() {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   }, [setTasks]);
 
+  const moveTask = useCallback((id, newQuadrant, startDate, endDate) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, quadrant: newQuadrant, startDate: startDate || null, endDate: endDate || null } : t))
+    );
+  }, [setTasks]);
+
+  const editTask = useCallback((id, updates) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, ...updates } : t))
+    );
+  }, [setTasks]);
+
   const getTasksByQuadrant = useCallback((quadrant, statusFilter) => {
     return tasks.filter((t) => {
       if (t.quadrant !== quadrant) return false;
@@ -53,6 +65,8 @@ export function useTasks() {
     addTask,
     toggleTask,
     deleteTask,
+    moveTask,
+    editTask,
     getTasksByQuadrant,
     getQuadrantCounts,
   };
