@@ -56,6 +56,8 @@ Click a quadrant to open it, and you get a clean task list for that priority lev
 
 This extension isn't on the Chrome Web Store — it loads straight from the built files in a few clicks.
 
+**Prerequisite:** [Node.js](https://nodejs.org/) 18+ installed (which includes `npm`). That's the only thing you need beyond Chrome.
+
 1. **Download this repo** — click the green **Code** button → **Download ZIP**, then unzip it (or `git clone` it).
 2. **Build it** (one time):
    ```bash
