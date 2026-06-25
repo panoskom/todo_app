@@ -96,6 +96,23 @@ Best if you want to tweak the code.
 
 That's it. No tutorial required.
 
+## Releasing a new version
+
+The [Releases](https://github.com/panoskom/todo_app/releases) zip is a frozen snapshot — it only changes when you publish a new one. After making code changes you want quick-install users to get:
+
+1. Bump `version` in **`manifest.json`** and **`package.json`** (e.g. `1.0.0` → `1.1.0`).
+2. Build and package in one step:
+   ```bash
+   npm run package
+   ```
+   This rebuilds `dist/` and writes a fresh `eisenhower-matrix-extension.zip`.
+3. Publish a release with the new zip:
+   ```bash
+   gh release create v1.1.0 eisenhower-matrix-extension.zip --title "Eisenhower Matrix v1.1.0" --notes "What changed..."
+   ```
+
+Source-build users (Option B) always get the latest code automatically — this step only refreshes the quick-install zip.
+
 ## Built with
 
 - [React](https://react.dev/) + [Vite](https://vitejs.dev/)
