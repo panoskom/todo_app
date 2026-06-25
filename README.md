@@ -54,9 +54,24 @@ Click a quadrant to open it, and you get a clean task list for that priority lev
 
 ## Install it
 
-This extension isn't on the Chrome Web Store — it loads straight from the built files in a few clicks.
+This extension isn't on the Chrome Web Store — it loads straight from the built files in a few clicks. Pick whichever option suits you.
 
-**Prerequisite:** [Node.js](https://nodejs.org/) 18+ installed (which includes `npm`). That's the only thing you need beyond Chrome.
+### Option A — Quick install (no build tools needed) ⭐
+
+Best if you just want to use it.
+
+1. Go to the [**Releases**](https://github.com/panoskom/todo_app/releases/latest) page and download **`eisenhower-matrix-extension.zip`**.
+2. Unzip it anywhere on your computer.
+3. Open Chrome and go to `chrome://extensions`.
+4. Turn on **Developer mode** (toggle in the top-right corner).
+5. Click **Load unpacked** and select the **unzipped folder** (the one containing `manifest.json`).
+6. Pin the icon to your toolbar and you're done — click it anytime to open your matrix.
+
+### Option B — Build from source
+
+Best if you want to tweak the code.
+
+**Prerequisite:** [Node.js](https://nodejs.org/) 18+ installed (which includes `npm`).
 
 1. **Download this repo** — click the green **Code** button → **Download ZIP**, then unzip it (or `git clone` it).
 2. **Build it** (one time):
@@ -68,7 +83,7 @@ This extension isn't on the Chrome Web Store — it loads straight from the buil
 3. **Open Chrome** and go to `chrome://extensions`.
 4. **Turn on Developer mode** (toggle in the top-right corner).
 5. Click **Load unpacked** and select the **`dist/`** folder.
-6. Pin the icon to your toolbar and you're done — click it anytime to open your matrix.
+6. Pin the icon to your toolbar and you're done.
 
 > **Tip:** After pulling new changes, run `npm run build` again and hit the refresh icon on the extension card in `chrome://extensions`.
 
